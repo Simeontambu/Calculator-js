@@ -1,4 +1,16 @@
 import { calculate } from "./calculator.js"; // TODO: Faire la manipulation du DOM dans ce fichier
+
+const numberButtons = document.querySelectorAll(".digit,.dot");
+const operationButtons = document.querySelectorAll(
+  "#divideby,#times,#plus,#minus"
+);
+const percentagebutton = document.querySelector("#percentage");
+const equalsButton = document.querySelector("#equals");
+const moreorless = document.querySelector("#plusoumoins")
+const deleteButton = document.querySelector("#clear");
+const allClearButton = document.querySelector("#reset");
+const previousOperandTextElement = document.querySelector("#calcul");
+const currentOperandTextElement = document.querySelector("#input");
 class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
@@ -34,6 +46,15 @@ class Calculator {
     if(this.currentOperand !== ""){
       this.currentOperand = this.currentOperand / 100;
     }
+  }
+  changessigncurrent(){
+    if (this.currentOperand !== ""){
+      this.currentOperand =`-${this.currentOperand}`
+      if(this.currentOperand === true){
+        this.currentOperand = this.currentOperand
+      }
+    }
+    
   }
   compute() {
     let computation;
@@ -93,17 +114,6 @@ class Calculator {
   }
 }
 
-const numberButtons = document.querySelectorAll(".digit,.dot");
-const operationButtons = document.querySelectorAll(
-  "#divideby,#times,#plus,#minus"
-);
-const percentagebutton = document.querySelector("#percentage");
-const equalsButton = document.querySelector("#equals");
-const deleteButton = document.querySelector("#clear");
-const allClearButton = document.querySelector("#reset");
-const previousOperandTextElement = document.querySelector("#calcul");
-const currentOperandTextElement = document.querySelector("#input");
-
 const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
@@ -135,6 +145,10 @@ allClearButton.addEventListener("click", () => {
   calculator.clear();
   calculator.updateDisplay();
 });
+moreorless.addEventListener('click',()=>{
+  calculator.changessigncurrent()
+  calculator.updateDisplay()
+})
 
 deleteButton.addEventListener("click", () => {
   calculator.delete();
