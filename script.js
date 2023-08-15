@@ -25,7 +25,7 @@ class Calculator {
   }
 
   delete() {
-    this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    this.currentOperand = this.currentOperand.toString().slice(0, 0);
   }
 
   appendNumber(number) {
@@ -50,9 +50,6 @@ class Calculator {
   changessigncurrent(){
     if (this.currentOperand !== ""){
       this.currentOperand =`-${this.currentOperand}`
-      if(this.currentOperand === true){
-        this.currentOperand = this.currentOperand
-      }
     }
     
   }
