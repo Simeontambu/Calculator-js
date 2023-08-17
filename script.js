@@ -1,4 +1,5 @@
-import { calculate } from "./calculator.js"; // TODO: Faire la manipulation du DOM dans ce fichier
+import { calculate } from "./calculator.js"; 
+// TODO: Faire la manipulation du DOM dans ce fichier
 
 const numberButtons = document.querySelectorAll(".digit,.dot");
 const operationButtons = document.querySelectorAll(
@@ -6,7 +7,7 @@ const operationButtons = document.querySelectorAll(
 );
 const percentagebutton = document.querySelector("#percentage");
 const equalsButton = document.querySelector("#equals");
-const moreorless = document.querySelector("#plusoumoins")
+const moreorless = document.querySelector("#plusoumoins");
 const deleteButton = document.querySelector("#clear");
 const allClearButton = document.querySelector("#reset");
 const previousOperandTextElement = document.querySelector("#calcul");
@@ -42,16 +43,16 @@ class Calculator {
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
-  calculatepercentage(){
-    if(this.currentOperand !== ""){
+  calculatepercentage() {
+    if (this.currentOperand !== "") {
       this.currentOperand = this.currentOperand / 100;
     }
   }
-  changessigncurrent(){
-    if (this.currentOperand !== ""){
-      this.currentOperand =`-${this.currentOperand}`
+  changessigncurrent() {
+    if (this.currentOperand !== "") {
+      // this.currentOperand = `-${this.currentOperand}`;
+       this.currentOperand = -this.currentOperand;
     }
-    
   }
   compute() {
     let computation;
@@ -88,7 +89,7 @@ class Calculator {
       integerDisplay = "";
     } else {
       integerDisplay = integerDigits.toLocaleString("en", {
-        maximumFractionDigits: 0
+        maximumFractionDigits: 0,
       });
     }
     if (decimalDigits != null) {
@@ -135,17 +136,17 @@ equalsButton.addEventListener("click", () => {
   calculator.updateDisplay();
 });
 percentagebutton.addEventListener("click", () => {
-calculator.calculatepercentage()
-calculator.updateDisplay();
+  calculator.calculatepercentage();
+  calculator.updateDisplay();
 });
 allClearButton.addEventListener("click", () => {
   calculator.clear();
   calculator.updateDisplay();
 });
-moreorless.addEventListener('click',()=>{
-  calculator.changessigncurrent()
-  calculator.updateDisplay()
-})
+moreorless.addEventListener("click", () => {
+  calculator.changessigncurrent();
+  calculator.updateDisplay();
+});
 
 deleteButton.addEventListener("click", () => {
   calculator.delete();
