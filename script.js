@@ -1,5 +1,5 @@
 
-import { calculate } from './calculator';
+import { calculate } from './calculator.js';
 
 
 // TODO: Faire la manipulation du DOM dans ce fichier
@@ -22,7 +22,7 @@ class Calculator {
     this.clear();
   }
 
-  
+
 
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
@@ -45,7 +45,7 @@ class Calculator {
   }
   changessigncurrent() {
     if (this.currentOperand !== "") {
-       this.currentOperand = -this.currentOperand;
+      this.currentOperand = -this.currentOperand;
     }
   }
   compute() {
@@ -55,7 +55,7 @@ class Calculator {
     if (isNaN(prev) || isNaN(current)) return;
     switch (this.operation) {
       case "+":
-        computation  = prev + current;
+        computation = prev + current;
         break;
       case "-":
         computation = prev - current;
@@ -156,7 +156,7 @@ deleteButton.addEventListener("click", () => {
   calculator.updateDisplay();
 });
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function(event) {
   let patternForNumbers = /[0-9]/g;
   let patternForOperators = /[+\-*\/]/g;
   if (event.key.match(patternForNumbers)) {
