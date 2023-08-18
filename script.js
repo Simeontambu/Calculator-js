@@ -12,6 +12,19 @@ const deleteButton = document.querySelector("#clear");
 const allClearButton = document.querySelector("#reset");
 const previousOperandElement = document.querySelector("#calcul");
 const currentOperandElement = document.querySelector("#input");
+const form = document.querySelector("form");
+const userInput = form.elements["userInput"];
+
+// blocking the pressing of the alphanumeric keys
+
+  userInput.addEventListener("input", function () {
+    this.value = this.value.match(/[0-9.]*/)[0];
+  });
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
+  
+  //class calculator js
 class Calculator {
   constructor(previousOperandElement, currentOperandElement) {
     this.previousOperandElement = previousOperandElement;
@@ -19,7 +32,6 @@ class Calculator {
     this.clear();
   }
 
-  
 
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
