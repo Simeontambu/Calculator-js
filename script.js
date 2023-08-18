@@ -1,7 +1,3 @@
-
-import { calculate } from './calculator.js';
-
-
 // TODO: Faire la manipulation du DOM dans ce fichier
 
 const numberButtons = document.querySelectorAll(".digit,.dot");
