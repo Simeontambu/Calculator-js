@@ -1,4 +1,3 @@
-// TODO: Faire la manipulation du DOM dans ce fichier
 
 const numberButtons = document.querySelectorAll(".digit,.dot");
 const operationButtons = document.querySelectorAll(
@@ -122,6 +121,7 @@ class Calculator {
   }
 }
 
+//Instantiate the calculator
 const calculator = new Calculator(
   previousOperandElement,
   currentOperandElement
